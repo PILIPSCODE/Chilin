@@ -2,7 +2,7 @@
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import gsap from 'gsap'
-import { SplitText } from 'gsap-trial/SplitText'
+// import { SplitText } from 'gsap-trial/SplitText'
 import React, { useEffect, useRef } from 'react'
 
 const AboutPage = () => {
@@ -33,24 +33,24 @@ const AboutPage = () => {
   useEffect(() => {
 
  
-    gsap.registerPlugin(SplitText)
-    const tm = gsap.timeline({
-      scrollTrigger: {
-        start: "30% bottom",
-        end: "140% center",
-        trigger: text.current,
-        scrub: 0.6,
-        markers: false
-      }
-    });
+    // gsap.registerPlugin(SplitText)
+    // const tm = gsap.timeline({
+    //   scrollTrigger: {
+    //     start: "30% bottom",
+    //     end: "140% center",
+    //     trigger: text.current,
+    //     scrub: 0.6,
+    //     markers: false
+    //   }
+    // });
 
-    const split = new SplitText(text.current, { type: "words,chars" });
-    tm.from(split.chars, {
-      duration: 1,
-      x: 5,
-      autoAlpha: 0,
-      stagger: 0.05
-    });
+    // const split = new SplitText(text.current, { type: "words,chars" });
+    // tm.from(split.chars, {
+    //   duration: 1,
+    //   x: 5,
+    //   autoAlpha: 0,
+    //   stagger: 0.05
+    // });
 
 
 
@@ -91,7 +91,7 @@ const AboutPage = () => {
 
       const tm = gsap.timeline({
         scrollTrigger: {
-          start: "-100% bottom",
+          start: "-10% bottom",
           end: "50 center",
           trigger: e,
           scrub: 0.6,

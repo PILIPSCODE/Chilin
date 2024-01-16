@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import  gsap  from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SplitText } from 'gsap-trial/SplitText'
 
 type props ={
   bodyRef:React.RefObject<HTMLDivElement>
@@ -16,7 +15,7 @@ const Hero = (props:props) => {
   useEffect(() => {
   
  const timeline = gsap.timeline()
- gsap.registerPlugin(SplitText) 
+//  gsap.registerPlugin(SplitText) 
 
 
 
@@ -108,12 +107,12 @@ timeline.from(produk.current,{
   })
 
 
-  tm3.to(split.chars,{
-    duration: 2, 
-    y: 500, 
-    opacity: 0,
-    stagger: 0.05
-  })
+  // tm3.to(split.chars,{
+  //   duration: 2, 
+  //   y: 500, 
+  //   opacity: 0,
+  //   stagger: 0.05
+  // })
   
 
 
