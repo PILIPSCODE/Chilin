@@ -68,20 +68,8 @@ const AboutPage = () => {
       });
 
 
-
-
-      const tm = gsap.timeline({
-        scrollTrigger: {
-          start: "-10% bottom",
-          end: "50 center",
-          trigger: e,
-          scrub: 0.6,
-          markers: false,
-        }
-      });
-
      
-      tm.from(e, {
+      Bottype.from(e, {
         x: direction * 200,
         opacity: 0,
       }).to(e, {
@@ -117,14 +105,14 @@ const AboutPage = () => {
                     <div className='relative h-16 w-16  '>
                       <Image alt='bot' fill src="/bot1.gif" />
                     </div>
-                    <h1>bot 1 is Typing</h1>
+                    <h1>bot 1</h1>
                   </div>
                   :
                   <div ref={(e) => (bot2.current[index + 1] = e)} className='flex-col relative flex gap-3 items-end'>
                     <div className='relative h-16 w-16 right-0 flex gap-3'>
                       <Image alt='bot' fill src="/bot2.gif" />
                     </div>
-                    <h1>bot 2 is Typing</h1>
+                    <h1>bot 2</h1>
                   </div>
               }
               <div ref={(e) => (refAbout.current[index + 1] = e)} className={`relative flex z-10 my-20  ${index % 2 === 0 ? "justify-start" : "justify-end"}`}>

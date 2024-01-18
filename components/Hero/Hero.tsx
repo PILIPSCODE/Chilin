@@ -33,7 +33,7 @@ const Hero = (props:props) => {
 
 }).to(texthero.current,{
   opacity:1,
-  duration:2,
+  duration:9,
   delay:0.2,
   yPercent:0
 })
