@@ -29,11 +29,11 @@ const Hero = (props:props) => {
 
  timeline.from(texthero.current,{
   opacity:0,  
-  yPercent:100,
+  yPercent:1000,
 
 }).to(texthero.current,{
   opacity:1,
-  duration:0.8,
+  duration:2,
   delay:0.2,
   yPercent:0
 })

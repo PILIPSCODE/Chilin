@@ -32,25 +32,6 @@ const AboutPage = () => {
   
   useEffect(() => {
 
- 
-    // gsap.registerPlugin(SplitText)
-    // const tm = gsap.timeline({
-    //   scrollTrigger: {
-    //     start: "30% bottom",
-    //     end: "140% center",
-    //     trigger: text.current,
-    //     scrub: 0.6,
-    //     markers: false
-    //   }
-    // });
-
-    // const split = new SplitText(text.current, { type: "words,chars" });
-    // tm.from(split.chars, {
-    //   duration: 1,
-    //   x: 5,
-    //   autoAlpha: 0,
-    //   stagger: 0.05
-    // });
 
 
 
@@ -61,7 +42,7 @@ const AboutPage = () => {
       const direction = index % 2 === 0 ? 1 : -1;
       const Bottype = gsap.timeline({
         scrollTrigger: {
-          start: "0% bottom",
+          start: "-30% bottom",
           end: " center",
           trigger: e,
           scrub: 0.6,
@@ -95,7 +76,7 @@ const AboutPage = () => {
           end: "50 center",
           trigger: e,
           scrub: 0.6,
-          markers: false
+          markers: false,
         }
       });
 
@@ -104,8 +85,8 @@ const AboutPage = () => {
         x: direction * 200,
         opacity: 0,
       }).to(e, {
-        delay: 1,
         x: 0,
+        delay: 1,
         ease: "sine",
         opacity: 1,
       });
