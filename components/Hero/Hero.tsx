@@ -15,17 +15,6 @@ const Hero = (props:props) => {
   useEffect(() => {
   
  const timeline = gsap.timeline()
-//  gsap.registerPlugin(SplitText) 
-
-
-
-//  const split = new SplitText(text.current, {type: "words,chars"});
-//  gsap.from(split.chars, {
-//    duration: 1, 
-//    y: 100, 
-//    autoAlpha: 0, 
-//    stagger: 0.05
-//  });
 
  timeline.from(texthero.current,{
   opacity:0,  
@@ -33,7 +22,7 @@ const Hero = (props:props) => {
 
 }).to(texthero.current,{
   opacity:1,
-  duration:9,
+  transition:3,
   delay:0.2,
   yPercent:0
 })

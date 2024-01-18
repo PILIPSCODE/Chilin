@@ -56,6 +56,7 @@ const AboutPage = () => {
       }).to(bot1.current[index], {
         x: 0,
         ease: "sine",
+        transition:2,
         opacity: 1,
       });
       Bottype.from(bot2.current[index], {
@@ -64,6 +65,7 @@ const AboutPage = () => {
       }).to(bot2.current[index], {
         x: 0,
         ease: "sine",
+        transition:2,
         opacity: 1,
       });
 
@@ -76,6 +78,7 @@ const AboutPage = () => {
         x: 0,
         delay: 1,
         ease: "sine",
+        transition:3,
         opacity: 1,
       });
 
