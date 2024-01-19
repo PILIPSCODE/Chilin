@@ -37,7 +37,7 @@ const MenuKami = () => {
 
                 <div ref={bodyMenu} className='h-screen flex flex-row w-v relative'>
                     <div className='w-screen flex items-center  h-screen justify-center bg-black/75 backdrop-blur-md'>
-                        <h1 className='text-7xl font-bold bg-white p-10'>⬅ Variant Rasa</h1>
+                        <h1 className='text-7xl max-md:text-4xl flex justify-center items-end relative font-bold bg-white p-10'>Variant Rasa <span className='text-xl bottom-0 absolute'>Keep Scrolling</span></h1>
                     </div>
                     <div className='w-screen  flex items-center h-screen justify-around bg-white '>
                     

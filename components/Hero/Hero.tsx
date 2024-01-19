@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Aos from 'aos'
+import 'aos/dist/aos.css';
 import  gsap  from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -13,19 +15,15 @@ const Hero = (props:props) => {
   const texthero = useRef<HTMLDivElement>(null)
   const text = useRef<HTMLHeadingElement>(null)
   useEffect(() => {
+
+
+
   
  const timeline = gsap.timeline()
 
- timeline.from(texthero.current,{
-  opacity:0,  
-  yPercent:1000,
 
-}).to(texthero.current,{
-  opacity:1,
-  transition:3,
-  delay:0.2,
-  yPercent:0
-})
+
+
 
 timeline.from(produk.current,{
   opacity:0,  
