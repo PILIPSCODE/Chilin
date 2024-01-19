@@ -27,13 +27,13 @@ const Hero = (props:props) => {
 
 timeline.from(produk.current,{
   opacity:0,  
-  yPercent:100,
+  yPercent:500,
   rotateZ:360
 
 }).to(produk.current,{
   opacity:1,
   duration:0.8,
-  delay:0.4,
+  delay:1,
   rotateZ:0,
   yPercent:0
 })
@@ -82,24 +82,24 @@ timeline.from(produk.current,{
     duration:5,
   })
 
-  const tm3 = gsap.timeline({
-    scrollTrigger:{
-      start:"55% center",
-      end: "200% center",
-      trigger:body.current,
-      scrub:true,
-      markers:false
-    },
+  // const tm3 = gsap.timeline({
+  //   scrollTrigger:{
+  //     start:"55% center",
+  //     end: "200% center",
+  //     trigger:body.current,
+  //     scrub:true,
+  //     markers:false
+  //   },
     
-  })
-
-
-  // tm3.to(split.chars,{
-  //   duration: 2, 
-  //   y: 500, 
-  //   opacity: 0,
-  //   stagger: 0.05
   // })
+
+
+  // // tm3.to(split.chars,{
+  // //   duration: 2, 
+  // //   y: 500, 
+  // //   opacity: 0,
+  // //   stagger: 0.05
+  // // })
   
 
 
