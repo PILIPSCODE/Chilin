@@ -90,7 +90,7 @@ const AboutPage = () => {
   return (
     <div className='h-about p-20 bg-black/75  relative text-white backdrop-blur-md  font-Poppins z-50 '>
       <div className='sm:w-9/12 w-full mx-auto'>
-        <h1 ref={text} className='text-4xl border-2 mb-20 text-center  font-bold font-Poppins' ><span data-aos="fade-up">Kenapa Sih Saya Harus Memilih Chillin? <span className='border-2 bg-black mx-2'>  ↩Enter</span></span> </h1>
+        <h1 ref={text} className='text-4xl border-2 mb-20 text-center max-sm:text-3xl font-bold font-Poppins max-md:pb-5' ><span data-aos="fade-up">Kenapa Sih Saya Harus Memilih Chillin? <span className='border-2 bg-black mx-2'>  ↩Enter</span></span> </h1>
         {
           ArrAbout.map((el, index) => (
             <div key={index}>

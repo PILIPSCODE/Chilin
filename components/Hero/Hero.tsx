@@ -21,7 +21,12 @@ const Hero = (props:props) => {
   
  const timeline = gsap.timeline()
 
-
+ timeline.fromTo(text.current,{
+   opacity:0
+ },{
+  opacity:1,
+  duration:1
+ })
 
 
 
