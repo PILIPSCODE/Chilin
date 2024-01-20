@@ -1,11 +1,33 @@
 "use client"
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import Image from 'next/image'
+import { FaEye } from 'react-icons/fa6'
 
 const MenuKami = () => {
     const bodyMenu = useRef<HTMLDivElement>(null)
     const triggerRef = useRef<HTMLDivElement>(null)
+    const [details, setDetails] = useState("")
+    
+
+    const Variant = [
+        {
+            kopi: "Putih",
+            backgroundText: "black",
+            bg: "white",
+            text: "white",
+            img: "/produkk",
+            decription: 'Kopi Putih, sentuhan kelembutan dalam setiap tegukan. Diproses secara alami oleh luwak, kopi ini menggoda dengan aroma halus dan karakter rasa istimewa. Keanggunan yang tak tertandingi, kini hadir dalam setiap cangkir. Nikmati kelembutan Kopi Luwak White, pengalaman kopi yang eksklusif dan mewah.'
+        },
+        {
+            kopi: "Hitam",
+            backgroundText: "white",
+            bg: "black",
+            text: "black",
+            img: "/produkk",
+            decription: '  Kopi Hitam, puncak kekuatan dan kegelapan dalam secangkir. Dipilih dari biji kopi pilihan, setiap tegukan menggambarkan kekayaan rasa dan aroma tegas. Berbeda dengan kopi putih yang menonjolkan kelembutan, Kopi Hitam menawarkan pengalaman kuat yang membangkitkan semangat, menghadirkan esensi keberanian dalam setiap hidangan.'
+        },
+    ]
     useEffect(() => {
         const pin = gsap.fromTo(bodyMenu.current, {
             translateX: 0,
@@ -37,24 +59,29 @@ const MenuKami = () => {
                     <div className='w-screen flex items-center  h-screen justify-center bg-black/75 backdrop-blur-md'>
                         <h1 className='text-7xl max-md:text-4xl flex justify-center items-end relative font-bold bg-white p-10'>Variant Rasa <span className='text-xl bottom-0 absolute'>Keep Scrolling</span></h1>
                     </div>
-                    <div className='w-screen max-md:gap-2 max-md:pt-10 flex max-md:flex-col items-center h-screen justify-center bg-white '>
-                       
-                        <h1 className='text-9xl max-md:text-6xl font-Abril bg-black text-white border-4  p-5 rounded-xl '>Kopi</h1>
-                        <div className='relative h-96 w-96'>
+
+                    {
+                        Variant.map((e,index) => (
+
+                    <div key={index} className={`w-screen gap-2 max-md:px-5 max-md:pt-10 text-${e.text}  flex max-md:flex-col items-center h-screen justify-center bg-${e.bg} `}>
+                        <h1 className={`text-9xl max-md:text-4xl font-Abril bg-${e.backgroundText} border-4  p-5 rounded-xl `}>Kopi</h1>
+                        <div className={`relative overflow-hidden h-96 max-w-full justify-center flex items-center w-96 shadow-xl rounded-lg border border-${e.backgroundText}`}>
+                            <div className={`${details === e.kopi? "translate-y-0" : "-translate-y-full"} duration-300 absolute h-full bottom-0 w-full bg-${e.backgroundText} opacity-85 z-50`}>
+                                <h1 className={`absolute top-0 w-full bg-${e.backgroundText} p-2  text-2xl `}>Rp.25.000</h1>
+                                <h1 onClick={() => setDetails("")} className='bg-red-500 top-3 text-center  w-5 h-5 flex justify-center items-center rounded-full absolute right-3'>X</h1>
+                                <div className='pt-20 px-5'>
+                                    <p className={`text-${e.text}`}>{e.decription}</p>
+                                    <button className={`p-3 bg-${e.backgroundText} rounded-xl border`}>Add To Cart</button>
+                                </div>
+                            </div>
+                            <button onClick={() => setDetails(e.kopi)} className={`p-3 bg-${e.backgroundText} rounded-xl relative z-40 border flex gap-2 items-center`}><FaEye /> Details</button>
                             <Image alt='product1' className='object-contain ' fill src="/produkk.png" />
                         </div>
-                        <h1 className='text-9xl max-md:text-7xl font-Abril p-5 border-4 border-black rounded-xl'>Putih</h1>
-
-                        
+                        <h1 className={`text-9xl max-md:text-4xl font-Abril p-5 border-4 text-${e.backgroundText} border-${e.backgroundText} rounded-xl`}>{e.kopi}</h1>
                     </div>
-                    <div className='w-screen max-md:gap-2 max-md:pt-10 flex max-md:flex-col items-center h-screen justify-center bg-black '>
-                    <h1 className='text-9xl max-md:text-6xl font-Abril bg-black text-white border-4 border-white p-5 rounded-xl '>Kopi</h1>
-                        <div className='relative h-96 w-96'>
-                            <Image alt='product1' className='object-contain ' fill src="/produkk.png" />
-                        </div>
-                        <h1 className='text-9xl max-md:text-7xl font-Abril bg-white p-5 border-4 rounded-xl'>Hitam</h1>
+                        ))
+                    }
 
-                    </div>
 
                 </div>
             </div>
