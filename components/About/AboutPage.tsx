@@ -32,63 +32,10 @@ const AboutPage = () => {
 
 
 
-  //   gsap.registerPlugin(ScrollTrigger)
-  //   refAbout.current.forEach((e, index) => {
-  //     const direction = index % 2 === 0 ? 1 : -1;
-  //     const Bottype = gsap.timeline({
-  //       scrollTrigger: {
-  //         start: "-30% bottom",
-  //         end: " center",
-  //         trigger: e,
-  //         scrub: 0.6,
-  //         markers: false
-  //       }
-  //     });
-
-  //     Bottype.from(bot1.current[index], {
-  //       x: -200,
-  //       opacity: 0,
-  //     }).to(bot1.current[index], {
-  //       x: 0,
-  //       ease: "sine",
-  //       opacity: 1,
-  //     });
-  //     Bottype.from(bot2.current[index], {
-  //       x: 200,
-  //       opacity: 0,
-  //     }).to(bot2.current[index], {
-  //       x: 0,
-  //       ease: "sine",
-  //       opacity: 1,
-  //     });
-
-
-     
-  //     Bottype.from(e, {
-  //       x: direction * 200,
-  //       opacity: 0,
-  //     }).to(e, {
-  //       x: 0,
-  //       delay: 1,
-  //       ease: "sine",
-  //       opacity: 1,
-  //     });
-
-
-
-
-
-
-  //   });
-
-
-
-  // }, [])
-
 
 
   return (
-    <div className='h-about p-20 bg-black/75  relative text-white backdrop-blur-md  font-Poppins z-50 '>
+    <div id='about' className='h-about p-20 bg-black/75  relative text-white backdrop-blur-md  font-Poppins z-50 '>
       <div className='sm:w-9/12 w-full mx-auto'>
         <h1 ref={text} className='text-4xl border-2 mb-20 text-center max-sm:text-3xl font-bold font-Poppins max-md:pb-5' ><span data-aos="fade-up">Kenapa Sih Saya Harus Memilih Chillin? <span className='border-2 bg-black mx-2'>  ↩Enter</span></span> </h1>
         {

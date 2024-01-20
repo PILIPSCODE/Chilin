@@ -6,6 +6,7 @@ import { MdDashboard } from "react-icons/md"
 import { useEffect } from 'react'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 
@@ -33,10 +34,10 @@ const NavBar = () => {
                 </div>
                 <div className={`${showNav ? "max-md:absolute " : "max-md:hidden"} right-5 flex-col flex  justify-center items-center  top-36 max-md:bg-white max-md:h-36 max-md:w-36 rounded-full  text-white`}>
                     <div className='flex gap-7 justify-center items-center w-full h-1/2 max-md:border-b-2 border-black'>
-                        <div className='my-auto pt-3'>
+                        <Link href={'#about'} className='my-auto pt-3'>
                             <Image className='bg-white md:hidden rounded-full' src="/logo.png" width={40} height={40} alt='logo' />
                             <h1 className='max-md:hidden'>About Us</h1>
-                        </div>
+                        </Link>
                         <div className='my-auto pt-3'>
                             <div className='text-4xl text-black md:hidden'><FaPhone /></div>
                             <h1 className='max-md:hidden'>Contact Us</h1>

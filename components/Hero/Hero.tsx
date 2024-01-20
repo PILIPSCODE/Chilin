@@ -39,6 +39,7 @@ timeline.from(produk.current,{
 }).to(produk.current,{
   opacity:1,
   duration:0.8,
+  transition:0.7,
   delay:1,
   rotateZ:0,
   yPercent:0
@@ -68,6 +69,7 @@ timeline.from(produk.current,{
     tm.to(produk.current,{
       y:heightbody +200,
       duration:5,
+      transition:0.5,
       rotateZ:300
     })
   }
@@ -85,7 +87,7 @@ timeline.from(produk.current,{
   tm2.to(texthero.current,{
     y:900,
     opacity:0,
-    duration:5,
+    transition:0.5
   })
 
   // const tm3 = gsap.timeline({
