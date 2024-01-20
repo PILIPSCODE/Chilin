@@ -25,6 +25,7 @@ const Hero = (props:props) => {
    opacity:0
  },{
   opacity:1,
+  delay:1,
   duration:1
  })
 
