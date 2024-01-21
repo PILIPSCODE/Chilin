@@ -39,7 +39,7 @@ timeline.from(produk.current,{
 }).to(produk.current,{
   opacity:1,
   duration:0.8,
-  transition:0.7,
+  transition:0.3,
   delay:1,
   rotateZ:0,
   yPercent:0

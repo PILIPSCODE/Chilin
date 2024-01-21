@@ -6,6 +6,7 @@ import Hero from '../Hero/Hero'
 import AboutPage from '../About/AboutPage';
 import MenuKami from '../MenuKami/MenuKami';
 import Contactus from '../Contactus/Contactus';
+import Footer from '../Contactus/Footer';
 
 const Landing = () => {
     const bodyref = useRef<HTMLDivElement>(null)
@@ -28,7 +29,8 @@ const Landing = () => {
             <AboutPage/>
             </div>
             <MenuKami/>    
-            <Contactus/>        
+            <Contactus/>
+            <Footer/>        
         </div>
     )
 }
