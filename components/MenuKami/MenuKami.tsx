@@ -25,7 +25,7 @@ const MenuKami = () => {
             bg: "black",
             text: "black",
             img: "/produkk",
-            decription: '  Kopi Hitam, puncak kekuatan dan kegelapan dalam secangkir. Dipilih dari biji kopi pilihan, setiap tegukan menggambarkan kekayaan rasa dan aroma tegas. Berbeda dengan kopi putih yang menonjolkan kelembutan, Kopi Hitam menawarkan pengalaman kuat yang membangkitkan semangat, menghadirkan esensi keberanian dalam setiap hidangan.'
+            decription: 'Kopi Hitam, puncak kekuatan dan kegelapan dalam secangkir. Dipilih dari biji kopi pilihan, setiap tegukan menggambarkan kekayaan rasa dan aroma tegas. Berbeda dengan kopi putih yang menonjolkan kelembutan, Kopi Hitam menawarkan pengalaman kuat yang membangkitkan semangat.'
         },
     ]
     useEffect(() => {
@@ -65,16 +65,16 @@ const MenuKami = () => {
 
                     <div key={index} className={`w-screen gap-2 max-md:px-5 max-md:pt-10 text-${e.text}  flex max-md:flex-col items-center h-screen justify-center bg-${e.bg} `}>
                         <h1 className={`text-9xl max-md:text-4xl font-Abril bg-${e.backgroundText} border-4  p-5 rounded-xl `}>Kopi</h1>
-                        <div className={`relative overflow-hidden h-96 max-w-full justify-center flex items-center w-96 shadow-xl rounded-lg border border-${e.backgroundText}`}>
-                            <div className={`${details === e.kopi? "translate-y-0" : "-translate-y-full"} duration-300 absolute h-full bottom-0 w-full bg-${e.backgroundText} opacity-85 z-50`}>
-                                <h1 className={`absolute top-0 w-full bg-${e.backgroundText} p-2  text-2xl `}>Rp.25.000</h1>
+                        <div className={`relative overflow-hidden h-96 max-w-full justify-center flex items-center w-72 shadow-xl rounded-lg bg-${e.backgroundText}`}>
+                            <div className={`${details === e.kopi? "translate-y-0" : "-translate-y-full"} duration-300 absolute h-full bottom-0 w-full bg-${e.backgroundText}  z-50`}>
+                                <h1 className={`absolute top-0 w-full border-b border-${e.text} bg-${e.backgroundText} p-1  text-2xl `}>Rp.25.000</h1>
                                 <h1 onClick={() => setDetails("")} className='bg-red-500 top-3 text-center  w-5 h-5 flex justify-center items-center rounded-full absolute right-3'>X</h1>
-                                <div className='pt-20 px-5'>
-                                    <p className={`text-${e.text}`}>{e.decription}</p>
-                                    <button className={`p-3 bg-${e.backgroundText} rounded-xl border`}>Add To Cart</button>
+                                <div className='pt-10 px-5'>
+                                    <p className={`text-${e.text} text-md`}>{e.decription}</p>
+                                    <button className={`p-3 bg-${e.backgroundText} cursor-pointer hover:bg-${e.text} hover:text-${e.backgroundText} rounded-xl border`}>Add To Cart</button>
                                 </div>
                             </div>
-                            <button onClick={() => setDetails(e.kopi)} className={`p-3 bg-${e.backgroundText} rounded-xl relative z-40 border flex gap-2 items-center`}><FaEye /> Details</button>
+                            <button onClick={() => setDetails(e.kopi)} className={`p-3 bg-${e.backgroundText} rounded-xl relative cursor-pointer hover:bg-${e.text} hover:text-${e.backgroundText} z-40 border flex gap-2 items-center`}><FaEye /> Beli</button>
                             <Image alt='product1' className='object-contain ' fill src="/produkk.png" />
                         </div>
                         <h1 className={`text-9xl max-md:text-4xl font-Abril p-5 border-4 text-${e.backgroundText} border-${e.backgroundText} rounded-xl`}>{e.kopi}</h1>
