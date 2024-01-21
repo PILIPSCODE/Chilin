@@ -5,6 +5,7 @@ import Lenis from "@studio-freight/lenis";
 import Hero from '../Hero/Hero'
 import AboutPage from '../About/AboutPage';
 import MenuKami from '../MenuKami/MenuKami';
+import Contactus from '../Contactus/Contactus';
 
 const Landing = () => {
     const bodyref = useRef<HTMLDivElement>(null)
@@ -26,7 +27,8 @@ const Landing = () => {
             <Hero bodyRef={bodyref} />
             <AboutPage/>
             </div>
-            <MenuKami/>            
+            <MenuKami/>    
+            <Contactus/>        
         </div>
     )
 }

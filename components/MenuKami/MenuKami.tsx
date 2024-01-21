@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import Image from 'next/image'
-import { FaEye } from 'react-icons/fa6'
+import { FaCartShopping, FaEye } from 'react-icons/fa6'
 
 const MenuKami = () => {
     const bodyMenu = useRef<HTMLDivElement>(null)
@@ -32,13 +32,13 @@ const MenuKami = () => {
         const pin = gsap.fromTo(bodyMenu.current, {
             translateX: 0,
         }, {
-            translateX: "-200vw",
+            translateX: "-300vw",
             ease: "none",
             duration: 1,
             scrollTrigger: {
                 trigger: triggerRef.current,
                 start: "top top",
-                end: "2000 top",
+                end: "3000 top",
                 pin: true,
                 scrub: 4
             },
@@ -71,10 +71,10 @@ const MenuKami = () => {
                                 <h1 onClick={() => setDetails("")} className='bg-red-500 top-3 text-center  w-5 h-5 flex justify-center items-center rounded-full absolute right-3'>X</h1>
                                 <div className='pt-10 px-5'>
                                     <p className={`text-${e.text} text-md`}>{e.decription}</p>
-                                    <button className={`p-3 bg-${e.backgroundText} cursor-pointer hover:bg-${e.text} hover:text-${e.backgroundText} rounded-xl border`}>Add To Cart</button>
+                                    <button className={`p-3 bg-${e.text} text-${e.backgroundText} cursor-pointer hover:bg-${e.backgroundText} hover:text-${e.text} rounded-xl border`}>Add To Cart</button>
                                 </div>
                             </div>
-                            <button onClick={() => setDetails(e.kopi)} className={`p-3 bg-${e.backgroundText} rounded-xl relative cursor-pointer hover:bg-${e.text} hover:text-${e.backgroundText} z-40 border flex gap-2 items-center`}><FaEye /> Beli</button>
+                            <button onClick={() => setDetails(e.kopi)} className={`p-3 bg-${e.backgroundText} rounded-xl relative cursor-pointer hover:bg-${e.text} hover:text-${e.backgroundText} z-40 border flex gap-2 items-center`}><FaCartShopping /> Beli</button>
                             <Image alt='product1' className='object-contain ' fill src="/produkk.png" />
                         </div>
                         <h1 className={`text-9xl max-md:text-4xl font-Abril p-5 border-4 text-${e.backgroundText} border-${e.backgroundText} rounded-xl`}>{e.kopi}</h1>
