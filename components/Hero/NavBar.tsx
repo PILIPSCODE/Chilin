@@ -14,7 +14,11 @@ import Link from 'next/link'
 const NavBar = () => {
     const [showNav, setShowNav] = useState(false)
     const [onscroll, setonScrool] = useState(false)
-    const Qty = useAppSelector((state) => state.CartReducer.jmlh);
+    const jmlhCart= useAppSelector((state) => state.CartReducer.jmlh);
+    const [Qty,Setjmlhcart] = useState(0)
+    useEffect(() => {
+      Setjmlhcart(Number(jmlhCart))
+    },[jmlhCart])
     
     
     useEffect(() => {

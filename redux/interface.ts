@@ -4,7 +4,7 @@
     img:String,
     Qty:number,
     id:String,
-    stock:Number,
+    stock:number,
     isChecked:Boolean,
 }
 
