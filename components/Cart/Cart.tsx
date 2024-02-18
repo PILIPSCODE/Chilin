@@ -80,7 +80,7 @@ const Cart = () => {
         {/* <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} /> */}
         <div className={`${PayPopup ? "" : "hidden"}`}>
 
-          <Paymeny PayPopup={PayPopup} SetPayPopup={SetPayPopup} />
+          {/* <Paymeny PayPopup={PayPopup} SetPayPopup={SetPayPopup} /> */}
         </div>
         <div className='bg-white rounded-xl font-Poppins p-5'>
           <input onChange={(e) => handleChange(e)} className='p-3 w-full rounded-lg bg-black text-white' type="text" placeholder='Masukan Kupon' />
