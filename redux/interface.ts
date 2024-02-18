@@ -8,8 +8,16 @@
     isChecked:Boolean,
 }
 
- interface Cart{
-    product:Cartitems[],
-    jmlh:Number
+interface CheckOut{
+    Address :number,
 }
 
+interface DataCustomer {
+    Fname:string,
+    Lname:string,
+    Email:string,
+    Phone:string,
+    CityID:number,
+    Selected:boolean,
+    City:string,
+}

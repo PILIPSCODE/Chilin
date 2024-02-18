@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Aos from 'aos'
 import 'aos/dist/aos.css';
 import  gsap  from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

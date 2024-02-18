@@ -3,30 +3,45 @@ import { Appdispatch, useAppSelector } from '@/redux/store';
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { SetCheck, SetCheckAll, decrement, increment } from '@/redux/feature/Cart-slice';
-import { FaCheck } from 'react-icons/fa6';
+import { CheckOut, RemoveProduct, RemoveProductAll, SetCheck, SetCheckAll, decrement, increment } from '@/redux/feature/Cart-slice';
+import { FaCheck, FaCirclePlus, FaTrash } from 'react-icons/fa6';
+import OrderSummary from './OrderSummary';
+import Paymeny from './Paymeny';
+import DataCustomer from './DataCustomer';
+import AddAddrees from './AddAddrees';
 
 const Cart = () => {
   const [CheckAll, SetCheckAl] = useState(false)
+  const [PayPopup, SetPayPopup] = useState(false)
+  const [AddresPopup, SetAddresPopup] = useState(false)
+  const [diskon, Setdiskon] = useState(0)
   const [inCarto, Setin] = useState<Cartitems[]>([])
 
-  const inCart = useAppSelector((state) => state.CartReducer.product);
+  const inCart = useAppSelector((state) => state.CartReducer.Cart);
   useEffect(() => {
     Setin(inCart)
   }, [inCart])
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.value === "ChillsCaffein" ? Setdiskon(30) : (e.target.value === "Wimerce" ? Setdiskon(20) : Setdiskon(0))
+
+  }
+
   const dispact = useDispatch<Appdispatch>();
 
   return (
-    <div className='h-full w-9/12  mx-auto grid lg:grid-cols-3 gap-4 pt-32 font-Poppins'>
-      <div className='col-span-2 '>
-
+    <div className='h-full w-9/12  mx-auto grid lg:grid-cols-3 gap-4 pt-20 font-Poppins'>
+      <div className='col-span-2 relative'>
         <div className='flex items-center gap-2 text-white'>
-          <div onClick={() => { dispact(SetCheckAll(CheckAll)), SetCheckAl(!CheckAll) }} className='ml-2 w-5 h-5 max-lg:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${CheckAll ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
+          <div onClick={() => { dispact(SetCheckAll(CheckAll)), SetCheckAl(!CheckAll) }} className='ml-1 w-5 h-5 max-lg:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${CheckAll ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
           <h1>Pilih Semua</h1>
+          <div className={`${CheckAll ? "flex items-center gap-3 mx-3" : "hidden"} border-red-600 border text-red-600 max-lg:top-3`} onClick={() => dispact(RemoveProductAll())}>
+            <FaTrash />
+            <h1>Hapus Semua</h1>
+          </div>
         </div>
         {
-          inCarto.map((e,index) => (
+          inCarto.map((e, index) => (
             <div key={index} className='relative bg-black shadow-sm shadow-white my-2 text-white md:gap-5 max-md:py-5  md:items-center px-4 flex-col md:flex-row flex rounded-md justify-around w-full h-24'>
               <div onClick={() => dispact(SetCheck(e))} className='absolute w-5 h-5 max-lg:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${e.isChecked ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
               <div className='flex items-center gap-3'>
@@ -43,50 +58,32 @@ const Cart = () => {
                 </div>
                 <h1>x {e.Qty}</h1>
               </div>
+              <div className='absolute right-3 text-red-600 max-lg:top-3 ' onClick={() => dispact(RemoveProduct(e))}>
+                <FaTrash />
+              </div>
             </div>
 
 
           ))}
       </div>
 
-      <div className='max-lg:col-span-2  col-span-1'>
-        <div className='bg-white rounded-xl font-Poppins p-5 mb-4'>
-          <h1 className='font-bold text-3xl'>Order Summary</h1>
-          <div className='flex text-base mt-2 justify-between'>
-            <div className='flex flex-col gap-2'>
-              <h1>SubTotal</h1>
-              <h1>Biaya Ongkir</h1>
-              <h1>Diskon</h1>
-              <h1 className='font-bold text-xl '>Total</h1>
-            </div>
-            <div className='flex flex-col gap-2'>
-              <h1>0</h1>
-              <h1>0</h1>
-              <h1>0</h1>
-              <h1 className='font-bold text-xl border-t-2'>0</h1>
-            </div>
+      <div className='max-lg:col-span-2  col-span-1 '>
+       
+        <div onClick={() => {SetAddresPopup(true)}} className=' text-white flex w-full justify-end gap-2 mb-4 items-center  text-2xl'>
+           <h1 className='text-lg'>Add Addrees</h1>
+          <FaCirclePlus />
+        </div>
+      
 
-          </div>
-          <button className={`p-3 bg-black rounded-lg text-white w-full text-center  shadow-lg relative cursor-pointer hover:bg-white hover:text-black  border`}>CheckOut Now</button>
+        <DataCustomer />
+        <AddAddrees AddreesPopup={AddresPopup} SetAddreesPopup={SetAddresPopup} />
+        <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} />
+        <div className={`${PayPopup ? "" : "hidden"}`}>
+
+          <Paymeny PayPopup={PayPopup} SetPayPopup={SetPayPopup} />
         </div>
         <div className='bg-white rounded-xl font-Poppins p-5'>
-          <h1 className='font-bold text-3xl'>Order Summary</h1>
-          <div className='flex text-base mt-2 justify-between'>
-            <div className='flex flex-col gap-2'>
-              <h1>SubTotal</h1>
-              <h1>Biaya Ongkir</h1>
-              <h1>Diskon</h1>
-              <h1 className='font-bold text-xl '>Total</h1>
-            </div>
-            <div className='flex flex-col gap-2'>
-              <h1>0</h1>
-              <h1>0</h1>
-              <h1>0</h1>
-              <h1 className='font-bold text-xl border-t-2'>0</h1>
-            </div>
-
-          </div>
-          <button className={`p-3 bg-black rounded-lg text-white w-full text-center  shadow-lg relative cursor-pointer hover:bg-white hover:text-black  border`}>CheckOut Now</button>
+          <input onChange={(e) => handleChange(e)} className='p-3 w-full rounded-lg bg-black text-white' type="text" placeholder='Masukan Kupon' />
         </div>
       </div>
     </div>

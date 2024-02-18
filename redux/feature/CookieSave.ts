@@ -28,14 +28,15 @@ export const CartSet =  (body:Cartitems) => {
   
      const findid = await datacart.find((el:Cartitems) =>  el.id === body.id )
      if(findid.Qty <= body.stock ) {
+       console.log(findid)
         let product:Cartitems = {
-            id:body.id,
-            isChecked:body.isChecked,
-            img:body.img,
-            Price:body.Price,
-            Qty:body.Qty +1,
-            ProductName:body.ProductName,
-            stock:body.stock
+            id:findid.id,
+            isChecked:findid.isChecked,
+            img:findid.img,
+            Price:findid.Price,
+            Qty:findid.Qty +1,
+            ProductName:findid.ProductName,
+            stock:findid.stock
            }
        const did = await datacart.filter((el:any) =>  el.id !== body.id) 
        did.push(product)
@@ -66,4 +67,41 @@ export const CartSet =  (body:Cartitems) => {
        setCookie("CartItems", JSON.stringify(did));
      }
      
+  }
+
+
+
+  export const CustomerSet = async (body:DataCustomer) => {
+    const getcookie = getCookie("MyDataAddrees");
+    getcookie ? "" : setCookie("MyDataAddrees", []);
+    const Customer = getcookie ? JSON.parse(String(getcookie)) : [];
+    const deliffav = Customer.find((e: any) => e.Email === body.Email);
+    if (deliffav) {
+      const newdata = Customer.filter((e: any) => e.Email !== body.Email);
+      setCookie("MyDataAddrees", JSON.stringify(newdata));
+      return newdata;
+    } else {
+      if(Customer.length <= 2){
+        Customer.push(body);
+        setCookie("MyDataAddrees", JSON.stringify(Customer));
+        return Customer;
+      }
+      toast.error("Addrees, limit 5")
+    }
+
+  }
+
+  export const UpdateCustomerSet = async (body:DataCustomer) => {
+    const getcookie = getCookie("MyDataAddrees");
+    getcookie ? "" : setCookie("MyDataAddrees", []);
+    const Customer = getcookie ? JSON.parse(String(getcookie)) : [];
+
+    const newArrayCustomer = Customer.map((item:DataCustomer) => {
+      if (item.Email === body.Email) {
+        return { ...item, Selected: true };
+      }
+      return { ...item, Selected: false };
+    });
+    setCookie("MyDataAddrees", JSON.stringify(newArrayCustomer));
+
   }
