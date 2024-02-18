@@ -19,7 +19,7 @@ const DataCustomer = () => {
 
 
     useEffect(() => {
-        SetAddrees(CheckOuut[0].CityID)
+        SetAddrees(CheckOuut[0]?.CityID)
     }, [CheckOuut])
 
     useEffect(() => {
