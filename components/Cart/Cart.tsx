@@ -7,7 +7,7 @@ import { CheckOut, RemoveProduct, RemoveProductAll, SetCheck, SetCheckAll, decre
 import { FaCheck, FaCirclePlus, FaTrash } from 'react-icons/fa6';
 import OrderSummary from './OrderSummary';
 import Paymeny from './Paymeny';
-// import DataCustomer from './DataCustomer';
+import DataCustomer from './DataCustomer';
 import AddAddrees from './AddAddrees';
 
 const Cart = () => {
@@ -77,7 +77,7 @@ const Cart = () => {
 
         {/* <DataCustomer /> */}
         <AddAddrees AddreesPopup={AddresPopup} SetAddreesPopup={SetAddresPopup} />
-        <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} />
+        {/* <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} /> */}
         <div className={`${PayPopup ? "" : "hidden"}`}>
 
           <Paymeny PayPopup={PayPopup} SetPayPopup={SetPayPopup} />
