@@ -67,7 +67,7 @@ const Cart = () => {
           ))}
       </div>
 
-      {/* <div className='max-lg:col-span-2  col-span-1 '>
+      <div className='max-lg:col-span-2  col-span-1 '>
        
         <div onClick={() => {SetAddresPopup(true)}} className=' text-white flex w-full justify-end gap-2 mb-4 items-center  text-2xl'>
            <h1 className='text-lg'>Add Addrees</h1>
@@ -75,7 +75,7 @@ const Cart = () => {
         </div>
       
 
-        <DataCustomer />
+        {/* <DataCustomer /> */}
         <AddAddrees AddreesPopup={AddresPopup} SetAddreesPopup={SetAddresPopup} />
         <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} />
         <div className={`${PayPopup ? "" : "hidden"}`}>
@@ -85,7 +85,7 @@ const Cart = () => {
         <div className='bg-white rounded-xl font-Poppins p-5'>
           <input onChange={(e) => handleChange(e)} className='p-3 w-full rounded-lg bg-black text-white' type="text" placeholder='Masukan Kupon' />
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
