@@ -76,7 +76,7 @@ const Cart = () => {
       
 
         {/* <DataCustomer /> */}
-        <AddAddrees AddreesPopup={AddresPopup} SetAddreesPopup={SetAddresPopup} />
+        {/* <AddAddrees AddreesPopup={AddresPopup} SetAddreesPopup={SetAddresPopup} />yg */}
         {/* <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} /> */}
         <div className={`${PayPopup ? "" : "hidden"}`}>
 
