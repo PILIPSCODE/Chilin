@@ -65,7 +65,7 @@ const Cart = () => {
 
 
           ))}
-      </div>
+      </div> */}
 
       <div className='max-lg:col-span-2  col-span-1 '>
        
@@ -85,7 +85,7 @@ const Cart = () => {
         <div className='bg-white rounded-xl font-Poppins p-5'>
           <input onChange={(e) => handleChange(e)} className='p-3 w-full rounded-lg bg-black text-white' type="text" placeholder='Masukan Kupon' />
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
