@@ -31,7 +31,7 @@ const Cart = () => {
 
   return (
     <div className='h-full w-9/12  mx-auto grid lg:grid-cols-3 gap-4 pt-20 font-Poppins'>
-      {/* <div className='col-span-2 relative'>
+      <div className='col-span-2 relative'>
         <div className='flex items-center gap-2 text-white'>
           <div onClick={() => { dispact(SetCheckAll(CheckAll)), SetCheckAl(!CheckAll) }} className='ml-1 w-5 h-5 max-lg:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${CheckAll ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
           <h1>Pilih Semua</h1>
@@ -65,9 +65,9 @@ const Cart = () => {
 
 
           ))}
-      </div> */}
+      </div>
 
-      <div className='max-lg:col-span-2  col-span-1 '>
+      {/* <div className='max-lg:col-span-2  col-span-1 '>
        
         <div onClick={() => {SetAddresPopup(true)}} className=' text-white flex w-full justify-end gap-2 mb-4 items-center  text-2xl'>
            <h1 className='text-lg'>Add Addrees</h1>
@@ -85,7 +85,7 @@ const Cart = () => {
         <div className='bg-white rounded-xl font-Poppins p-5'>
           <input onChange={(e) => handleChange(e)} className='p-3 w-full rounded-lg bg-black text-white' type="text" placeholder='Masukan Kupon' />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
