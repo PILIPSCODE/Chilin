@@ -63,7 +63,7 @@ const Addrees = () => {
           className={`absolute ${onfocuss ? "" : "hidden"} p-2 translate-y-16 rounded-lg overflow-y-scroll -bottom-full z-50 w-full h-32 bg-black text-white border`}
         >
           {data
-            .filter((e: any) => {
+            ?.filter((e: any) => {
               if (cities !== "") {
                 return e.city_name.toLowerCase().includes(
                   cities.toLowerCase());
