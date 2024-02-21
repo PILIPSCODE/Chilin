@@ -68,11 +68,11 @@ const Cart = () => {
       </div>
 
       <div className='max-lg:col-span-2  col-span-1 '>
-       
+{/*        
         <div onClick={() => {SetAddresPopup(true)}} className=' text-white flex w-full justify-end gap-2 mb-4 items-center  text-2xl'>
            <h1 className='text-lg'>Add Addrees</h1>
           <FaCirclePlus />
-        </div>
+        </div> */}
       
 
         {/* <DataCustomer /> */}
