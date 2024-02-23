@@ -1,4 +1,5 @@
-import { DataCustome, totalIsQty } from '@/redux/feature/Cart-slice';
+"use client"
+import { DataCustome, DelDataCustome, SetCosts, totalIsQty} from '@/redux/feature/Cart-slice';
 import { Appdispatch, useAppSelector } from '@/redux/store';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
@@ -17,7 +18,7 @@ const DataCustomer = () => {
     const CheckOuut = useAppSelector((state) => state.CartReducer.DataCustomer).filter((e) => e.Selected === true);
     const DataCus = useAppSelector((state) => state.CartReducer.DataCustomer);
 
-
+    console.log(CheckOuut.length ===0)
     useEffect(() => {
         SetAddrees(CheckOuut[0]?.CityID)
     }, [CheckOuut])
@@ -43,7 +44,7 @@ const DataCustomer = () => {
 
     }
     const HandleChangeCost = (e:React.ChangeEvent<HTMLSelectElement>) => {
-
+        dispact(SetCosts(Number(e.target.value)))
     }
    
     return (
@@ -61,16 +62,13 @@ const DataCustomer = () => {
                                 </div>
                                 <div className='flex '>
 
-                                    <h1>{e.Fname},{e.Lname}</h1>
+                                    <h1>{e.Fname}</h1>
                                     <span>,</span>
                                     <h1>{e.City},{e.Phone}</h1>
                                 </div>
-                                <div className='absolute right-5 flex gap-1'>
-                                    <div className='text-blue-500'>
-
-                                        <FaPencil />
-                                    </div>
-                                    <div className='text-red-500'>
+                                <div className='absolute right-5 bg-black rounded-lg p-1
+                                 flex gap-1'>
+                                    <div onClick={() => dispact(DelDataCustome(e))} className='text-red-500'>
 
                                         <FaTrash />
                                     </div>
@@ -81,9 +79,9 @@ const DataCustomer = () => {
                
             </div>
 
-            <div  onClick={() => Qty === 0?toast.error("Select min 1 items"):""}  className='bg-white p-5 rounded-lg mb-4'>
+            <div  onClick={() => Qty === 0 ?toast.error("Select min 1 items"):(CheckOuut.length === 0 ? toast.error("Select Addrees") :"")}  className='bg-white p-5 rounded-lg mb-4'>
                 <h1>Kurir</h1>
-                <select defaultValue={"Pilih Kurir"} onChange={(e) => HandleChange(e)} className={`w-full ${Addres !== 0 && Qty === 0? "pointer-events-none" : ""} bg-black text-white rounded-lg text-lg p-2 mb-4`}>
+                <select defaultValue={"Pilih Kurir"} onChange={(e) => HandleChange(e)} className={`w-full ${CheckOuut.length === 0 ? "pointer-events-none" : ""} bg-black text-white rounded-lg text-lg p-2 mb-4`}>
                     <option  disabled> Pilih Kurir</option>
                     <option value="jne">JNE</option>
                     <option value="pos">POS INDONESIA</option>

@@ -10,6 +10,7 @@
 
 interface CheckOut{
     Address :number,
+    city:string
 }
 
 interface DataCustomer {

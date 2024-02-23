@@ -77,10 +77,10 @@ const Cart = () => {
 
         <DataCustomer />
         <AddAddrees AddreesPopup={AddresPopup} SetAddreesPopup={SetAddresPopup} />
-        <OrderSummary PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} />
+        <OrderSummary in='Cart' PayPopup={PayPopup} SetPayPopup={SetPayPopup} diskon={diskon} />
         <div className={`${PayPopup ? "" : "hidden"}`}>
 
-          <Paymeny PayPopup={PayPopup} SetPayPopup={SetPayPopup} />
+          <Paymeny diskon={diskon} PayPopup={PayPopup} SetPayPopup={SetPayPopup} />
         </div>
         <div className='bg-white rounded-xl font-Poppins p-5'>
           <input onChange={(e) => handleChange(e)} className='p-3 w-full rounded-lg bg-black text-white' type="text" placeholder='Masukan Kupon' />

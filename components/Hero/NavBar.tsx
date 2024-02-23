@@ -24,7 +24,7 @@ const NavBar = () => {
     useEffect(() => {
         window.addEventListener('scroll', (e) => {
             let scY = window.scrollY
-            if (scY <= 100) {
+            if (scY <= 4) {
                 setonScrool(false)
             } else {
                 setonScrool(true)

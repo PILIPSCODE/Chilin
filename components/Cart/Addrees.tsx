@@ -15,11 +15,9 @@ const Addrees = () => {
   const dispact = useDispatch<Appdispatch>();
   const handleClick = async(e:any) => {
     setCliked(!cliked)
-   
     setOnfocuss(false)
     setCities(e.city_name)
-    dispact(CheckOut(e.city_id))
-    console.log(data)
+    dispact(CheckOut({Address: e.city_id,city: e.city_name}))
   }
   useEffect(() => {
     const Address = async () => {
@@ -53,7 +51,7 @@ const Addrees = () => {
           value={cities}
           onChange={(e) => {
             setCities(e.target.value);
-            dispact(CheckOut(0))
+            dispact(CheckOut({Address:0,city:""}))
           }}
           name="otherInput"
           placeholder="Contoh:Surakarta"

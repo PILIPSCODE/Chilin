@@ -8,11 +8,13 @@ type InitialState={
   Cart:Cartitems[],
   CheckOut:CheckOut,
   jmlh:Number,
+  Cost:Number,
   DataCustomer:DataCustomer[]
 }
 const initialState: InitialState = {
    Cart:[],
-   CheckOut:{Address:0},
+   CheckOut:{Address:0,city:""},
+   Cost:0,
    jmlh:0,
    DataCustomer:[],
 };
@@ -105,9 +107,9 @@ export const Cart = createSlice({
      state.Cart = [];
      setCookie("CartItems",[])
     },
-    CheckOut:(state, action: PayloadAction<number>)=>{
+    CheckOut:(state, action: PayloadAction<CheckOut>)=>{
       
-        state.CheckOut = {Address:action.payload}
+        state.CheckOut = {Address:action.payload.Address,city:action.payload.city}
     },
     DataCustome: (state, action: PayloadAction<DataCustomer>)=> {
       const Customer = state.DataCustomer.find((e) => e.Email === action.payload.Email)
@@ -126,6 +128,13 @@ export const Cart = createSlice({
         state.DataCustomer.push(action.payload)
         CustomerSet(action.payload)
       }
+    },
+    DelDataCustome: (state, action: PayloadAction<DataCustomer>)=> {
+      state.DataCustomer = state.DataCustomer.filter(e => e.Email !== action.payload.Email)
+      CustomerSet(action.payload)
+    },
+    SetCosts:(state, action:PayloadAction<Number>) => {
+      state.Cost = action.payload
     }
     
   },
@@ -144,5 +153,5 @@ export const totalIsQty = createSelector([CartItem], (cartItem) =>
 );
 
 
-export const { increment, decrement, SetCheck, SetCheckAll,RemoveProduct,RemoveProductAll,CheckOut,DataCustome} = Cart.actions;
+export const { increment, DelDataCustome,decrement, SetCheck, SetCheckAll,SetCosts,RemoveProduct,RemoveProductAll,CheckOut,DataCustome} = Cart.actions;
 export default Cart.reducer;
