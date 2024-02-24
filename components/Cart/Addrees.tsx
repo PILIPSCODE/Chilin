@@ -25,6 +25,7 @@ const Addrees = () => {
       const data = await city.json();
       setData(data.rajaongkir.results);
     };
+    
     Address();
     return(() => {
     })
