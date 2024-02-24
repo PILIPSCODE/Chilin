@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ReduxProvider } from '@/redux/provider'
 import ToasterContext from './context/ToasterContext'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           <ToasterContext />
           {children}
         </ReduxProvider>
+        <Script data-client-key={`${process.env.NEXT_PUBLIC_CLIENT_KEY_MIDTRANS}`} src="https://app.sandbox.midtrans.com/snap/snap.js"/>
       </body>
     </html>
   )

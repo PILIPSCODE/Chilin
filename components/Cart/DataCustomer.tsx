@@ -17,8 +17,6 @@ const DataCustomer = () => {
     const Qty = useSelector(totalIsQty)
     const CheckOuut = useAppSelector((state) => state.CartReducer.DataCustomer).filter((e) => e.Selected === true);
     const DataCus = useAppSelector((state) => state.CartReducer.DataCustomer);
-
-    console.log(CheckOuut.length ===0)
     useEffect(() => {
         SetAddrees(CheckOuut[0]?.CityID)
     }, [CheckOuut])
@@ -79,9 +77,9 @@ const DataCustomer = () => {
                
             </div>
 
-            <div  onClick={() => Qty === 0 ?toast.error("Select min 1 items"):(CheckOuut.length === 0 ? toast.error("Select Addrees") :"")}  className='bg-white p-5 rounded-lg mb-4'>
+            <div  onClick={() => Qty === 0 ?toast.error("Select min 1 items"):(CheckOuut.length === 0 ? toast.error("Select Addrees") :"")}  className={`${CheckOuut.length === 0 || Qty === 0 ? "pointer-events-none" : ""} bg-white p-5 rounded-lg mb-4`}>
                 <h1>Kurir</h1>
-                <select defaultValue={"Pilih Kurir"} onChange={(e) => HandleChange(e)} className={`w-full ${CheckOuut.length === 0 ? "pointer-events-none" : ""} bg-black text-white rounded-lg text-lg p-2 mb-4`}>
+                <select defaultValue={"Pilih Kurir"} onChange={(e) => HandleChange(e)} className={`w-full  bg-black text-white rounded-lg text-lg p-2 mb-4`}>
                     <option  disabled> Pilih Kurir</option>
                     <option value="jne">JNE</option>
                     <option value="pos">POS INDONESIA</option>
