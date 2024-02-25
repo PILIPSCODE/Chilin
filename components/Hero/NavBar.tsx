@@ -61,14 +61,14 @@ const NavBar = () => {
                     </div>
 
                 </div>
-                <Link draggable onDragEnd={(e) => {e.preventDefault(),SetPosition({x:e.clientX,y:e.clientY})}}  href=""  style={{left:position.x,top:position.y}} className={`absolute cursor-move    justify-center shadow-3xl  flex items-center text-white bg-black border w-12 h-12 md:hidden rounded-full`}>
+                <div draggable onDragEnd={(e) => {e.preventDefault(),SetPosition({x:e.clientX,y:e.clientY})}}    style={{left:position.x,top:position.y}} className={`absolute cursor-move    justify-center shadow-3xl  flex items-center text-white bg-black border w-12 h-12 md:hidden rounded-full`}>
                     <div className={`h-full w-full ${!showNav ? "hidden" : "flex justify-center items-center"}`} onClick={() => setShowNav(false)}>
                         <FaX />
                     </div>
                     <div  onClick={() => setShowNav(true)} className={`h-full w-full ${!showNav ? "flex justify-center items-center" : "hidden"}`}>
                         <MdDashboard />
                     </div>
-                </Link>
+                </div>
                 <div className='flex gap-9 items-center'>
                     <Link className='flex items-center gap-1' href={'/Cart'}><FaCartShopping /><span className='text-white absolute translate-x-6'>{String(Qty)}</span></Link>
 
