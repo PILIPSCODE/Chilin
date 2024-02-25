@@ -40,8 +40,9 @@ const AddAddrees = (props:props) => {
 
   }
   return (
-    <div className={`fixed w-full left-0 z-50 h-full flex justify-center top-0 py-20 ${props.AddreesPopup?"":"hidden"}`}>
-        <form onSubmit={(e) => HandleSubmit(e)} className='w-9/12 text-white flex flex-col gap-6 bg-black/85 border p-14 rounded-lg h-full relative'>
+    <div className={`fixed w-full left-0 z-50 h-full flex justify-center top-0 pt-20 px-4
+    . lg:p-20 ${props.AddreesPopup?"":"hidden"}`}>
+        <form onSubmit={(e) => HandleSubmit(e)} className='w-full text-white flex flex-col gap-6 bg-black/85 border p-2 py-14 rounded-lg  relative'>
             <div onClick={() => props.SetAddreesPopup(false)} className='absolute right-3 top-3 text-red-500 text-2xl'><FaCircleXmark/></div>
             <input onChange={(e) => SetFName(e.target.value)} value={Fname} required className='bg-transparent px-2 ouline-none border-b h-10' placeholder='Nama Depan' type="text" />
             <input onChange={(e) => SetLName(e.target.value)} value={Lname} required className='bg-transparent px-2 ouline-none border-b h-10' placeholder='Nama Belakang' type="text" />

@@ -62,7 +62,7 @@ const DataCustomer = () => {
 
                                     <h1>{e.Fname}</h1>
                                     <span>,</span>
-                                    <h1>{e.City},{e.Phone}</h1>
+                                    <h1>{e.City}</h1>
                                 </div>
                                 <div className='absolute right-5 bg-black rounded-lg p-1
                                  flex gap-1'>

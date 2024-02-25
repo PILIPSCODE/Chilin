@@ -14,7 +14,7 @@ const Paymeny = (props: props) => {
   const Checkout = useAppSelector((state) => state.CartReducer.Cart);
 
   return (
-    <div className='fixed z-50  py-20 left-0 flex justify-center top-0 h-full w-full'>
+    <div className='fixed z-50  pt-20 left-0 flex justify-center top-0 h-full w-full'>
       <div className='w-10/12 flex flex-col justify-between bg-black/85 border border-white relative  rounded-lg h-full'>
       <div onClick={() => props.SetPayPopup(false)} className='absolute z-50 right-3 top-3 text-red-500 text-2xl'><FaCircleXmark/></div>
 

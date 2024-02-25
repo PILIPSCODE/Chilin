@@ -4,7 +4,6 @@ import React from 'react'
 const Contactus = () => {
   return (
     <div className='p-10 font-Poppins bg-white'>
-      <h1 className='text-5xl my-3 font-bold'>Contact Us</h1>
       <div className=' overflow-hidden  grid md:grid-cols-2 '>
         <div
         >

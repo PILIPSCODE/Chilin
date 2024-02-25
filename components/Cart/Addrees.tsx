@@ -56,7 +56,7 @@ const Addrees = () => {
           }}
           name="otherInput"
           placeholder="Contoh:Surakarta"
-          className=" p-3 rounded-lg bg-black text-white relative max-lg:w-11/12 max-lg:mx-3 w-80 "
+          className=" p-3 rounded-lg bg-black text-white relative max-lg:w-11/12  w-80 "
         />
         <div
           className={`absolute ${onfocuss ? "" : "hidden"} p-2 translate-y-16 rounded-lg overflow-y-scroll -bottom-full z-50 w-full h-32 bg-black text-white border`}

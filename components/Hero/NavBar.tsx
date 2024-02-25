@@ -14,13 +14,16 @@ import Link from 'next/link'
 const NavBar = () => {
     const [showNav, setShowNav] = useState(false)
     const [onscroll, setonScrool] = useState(false)
-    const jmlhCart= useAppSelector((state) => state.CartReducer.jmlh);
-    const [Qty,Setjmlhcart] = useState(0)
+    const jmlhCart = useAppSelector((state) => state.CartReducer.jmlh);
+    const [Qty, Setjmlhcart] = useState(0)
+    const [position, SetPosition] = useState({x:48, y:192})
+    console.log(position)
+
     useEffect(() => {
-      Setjmlhcart(Number(jmlhCart))
-    },[jmlhCart])
-    
-    
+        Setjmlhcart(Number(jmlhCart))
+    }, [jmlhCart])
+
+
     useEffect(() => {
         window.addEventListener('scroll', (e) => {
             let scY = window.scrollY
@@ -31,6 +34,9 @@ const NavBar = () => {
             }
         })
     }, [])
+
+
+    
     return (
         <div className={`flex justify-center  ${onscroll ? "backdrop-blur-md bg-black/45" : "bg-transparent"}  font-Poppins navb  fixed w-full h-20 items-center`}>
             <div className='w-9/12 text-white flex justify-between  '>
@@ -38,7 +44,8 @@ const NavBar = () => {
                     <Image className='rounded-full' src="/logo.png" width={50} height={50} alt='logo' />
                     <h1>Chillin</h1>
                 </Link>
-                <div className={`${showNav ? "max-md:absolute " : "max-md:hidden"} right-5 flex-col flex  justify-center items-center  top-36 max-md:bg-white max-md:h-36 max-md:w-36 rounded-full  text-white`}>
+                <div style={{left:position.x -50 ,top:position.y -44}} className={`${showNav ? "max-md:absolute " : "max-md:hidden"} right-5 flex-col flex  justify-center items-center  top-36 max-md:bg-white max-md:h-36 max-md:w-36 rounded-full  text-white`}>
+
                     <div className='flex gap-7 justify-center items-center w-full h-1/2 max-md:border-b-2 border-black'>
                         <Link href={'/#about'} className='my-auto pt-3'>
                             <Image className='bg-white md:hidden rounded-full' src="/logo.png" width={40} height={40} alt='logo' />
@@ -52,15 +59,16 @@ const NavBar = () => {
                     <div className='flex gap-7 justify-center items-center w-full  h-1/2 max-md:border-t-2 border-black'>
 
                     </div>
+
                 </div>
-                <div className='absolute  right-12 -translate-x-4  top-48  justify-center shadow-3xl  flex items-center text-white bg-black border w-12 h-12 md:hidden rounded-full'>
+                <Link draggable onDragEnd={(e) => {e.preventDefault(),SetPosition({x:e.clientX,y:e.clientY})}}  href=""  style={{left:position.x,top:position.y}} className={`absolute cursor-move    justify-center shadow-3xl  flex items-center text-white bg-black border w-12 h-12 md:hidden rounded-full`}>
                     <div className={`h-full w-full ${!showNav ? "hidden" : "flex justify-center items-center"}`} onClick={() => setShowNav(false)}>
                         <FaX />
                     </div>
-                    <div onClick={() => setShowNav(true)} className={`h-full w-full ${!showNav ? "flex justify-center items-center" : "hidden"}`}>
+                    <div  onClick={() => setShowNav(true)} className={`h-full w-full ${!showNav ? "flex justify-center items-center" : "hidden"}`}>
                         <MdDashboard />
                     </div>
-                </div>
+                </Link>
                 <div className='flex gap-9 items-center'>
                     <Link className='flex items-center gap-1' href={'/Cart'}><FaCartShopping /><span className='text-white absolute translate-x-6'>{String(Qty)}</span></Link>
 

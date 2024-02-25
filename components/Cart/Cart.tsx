@@ -30,12 +30,12 @@ const Cart = () => {
   const dispact = useDispatch<Appdispatch>();
 
   return (
-    <div className='h-full w-9/12  mx-auto grid lg:grid-cols-3 gap-4 pt-20 font-Poppins'>
+    <div className='h-full w-9/12  mx-auto grid xl:grid-cols-3 gap-4 pt-20 font-Poppins'>
       <div className='col-span-2 relative'>
         <div className='flex items-center gap-2 text-white'>
-          <div onClick={() => { dispact(SetCheckAll(CheckAll)), SetCheckAl(!CheckAll) }} className='ml-1 w-5 h-5 max-lg:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${CheckAll ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
+          <div onClick={() => { dispact(SetCheckAll(CheckAll)), SetCheckAl(!CheckAll) }} className='ml-1 w-5 h-5 max-xl:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${CheckAll ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
           <h1>Pilih Semua</h1>
-          <div className={`${CheckAll ? "flex items-center gap-3 mx-3" : "hidden"} border-red-600 border text-red-600 max-lg:top-3`} onClick={() => dispact(RemoveProductAll())}>
+          <div className={`${CheckAll ? "flex items-center gap-3 mx-3" : "hidden"} border-red-600 border text-red-600 max-xl:top-3`} onClick={() => dispact(RemoveProductAll())}>
             <FaTrash />
             <h1>Hapus Semua</h1>
           </div>
@@ -67,7 +67,7 @@ const Cart = () => {
           ))}
       </div>
 
-      <div className='max-lg:col-span-2  col-span-1 '>
+      <div className='max-xl:col-span-2  col-span-1 '>
        
         <div onClick={() => {SetAddresPopup(true)}} className=' text-white flex w-full justify-end gap-2 mb-4 items-center  text-2xl'>
            <h1 className='text-lg'>Add Addrees</h1>
