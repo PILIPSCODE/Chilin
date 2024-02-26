@@ -91,3 +91,9 @@ body{
 .w-v{
   width: 400vw;
 }
+
+@media(max-width:320px){
+  .typo{
+    display: none;
+  }
+}
