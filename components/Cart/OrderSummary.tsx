@@ -1,6 +1,7 @@
 "use client"
 import { totalIsSelect } from '@/redux/feature/Cart-slice'
 import { useAppSelector } from '@/redux/store';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -12,6 +13,7 @@ type props = {
 }
 const OrderSummary = (props: props) => {
   const [token,setToken] = useState("")
+  const router = useRouter()
   const CheckOuut = useAppSelector((state) => state.CartReducer.DataCustomer).filter(e => e.Selected === true);
   const Payment = useAppSelector((state) => state.CartReducer.Cart).filter(e => e.isChecked === true);
 
@@ -48,7 +50,7 @@ const OrderSummary = (props: props) => {
     console.log(data)
 
     try {
-      const res = await fetch("http://localhost:8080/api/product",{
+      const res = await fetch("https://paymentgateway-with-go-production.up.railway.app/api/product",{
         method:"POST",
         body:JSON.stringify(data),
         headers:{
@@ -71,12 +73,18 @@ const OrderSummary = (props: props) => {
     (CheckOuut.length === 0 && Subtotal === 0?toast.error("Select min 1 Items"):(Costs === 0 ?toast.error("Select Courier"):""))
   }
 
+  const sendWa = Payment.map((e) => ({
+    price:e.Price,
+    quantity:e.Qty,
+    name:e.ProductName,
+  }))
 
   useEffect(() => {
     if(token){
             (window as any).snap.pay(token,{
-               onSuccess:async(transaction:any) => {
+               onSuccess:(transaction:any) => {
                    console.log("SUccess",transaction)
+                   router.push(`https://wa.me/6285868302860?text=Atas Nama ${CheckOuut[0].Fname}, Alamat: ${CheckOuut[1].City}, Order: ${sendWa} `)
                },
                onPending:(transaction:any) => {
                    console.log("Pending",transaction)
