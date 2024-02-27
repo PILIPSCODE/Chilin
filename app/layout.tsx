@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Chilin',
   description: 'Kedai Kopi Online, Dengan Kopi Terbaik',
+  icons: {
+   icon:`/logo.png`,
+  },
 }
 
 export default function RootLayout({
@@ -19,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      <link rel="icon" href="/logo.png"/>
+      </head>
       <body className={inter.className}>
         <ReduxProvider>
           <ToasterContext />
