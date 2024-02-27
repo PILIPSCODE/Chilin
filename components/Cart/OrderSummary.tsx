@@ -103,7 +103,7 @@ const OrderSummary = (props: props) => {
         </div>
         <div className='flex flex-col gap-2'>
           <h1>{totalslect}</h1>
-          <h1>{props.diskon} %</h1>
+          <h1 className='text-red-500'>-{(Subtotal - total).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</h1>
           <h1>{Cost}</h1>
           <h1 className='font-bold text-xl border-t-2'>{TotalWithCost}</h1>
         </div>

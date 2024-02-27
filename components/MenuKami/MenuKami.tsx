@@ -20,7 +20,7 @@ const MenuKami = () => {
             backgroundText: "black",
             bg: "white",
             text: "white",
-            img: "/produkk",
+            img: "/produkkPutih",
             decription: 'Kopi Putih, sentuhan kelembutan dalam setiap tegukan. Diproses secara alami oleh luwak, kopi ini menggoda dengan aroma halus dan karakter rasa istimewa. Keanggunan yang tak tertandingi, kini hadir dalam setiap cangkir. Nikmati kelembutan Kopi Luwak White, pengalaman kopi yang eksklusif dan mewah.'
         },
         {
@@ -28,7 +28,7 @@ const MenuKami = () => {
             backgroundText: "white",
             bg: "black",
             text: "black",
-            img: "/produkk",
+            img: "/produkkHitam",
             decription: 'Kopi Hitam, puncak kekuatan dan kegelapan dalam secangkir. Dipilih dari biji kopi pilihan, setiap tegukan menggambarkan kekayaan rasa dan aroma tegas. Berbeda dengan kopi putih yang menonjolkan kelembutan, Kopi Hitam menawarkan pengalaman kuat yang membangkitkan semangat.'
         },
     ]

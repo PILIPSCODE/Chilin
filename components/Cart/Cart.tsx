@@ -46,7 +46,7 @@ const Cart = () => {
               <div onClick={() => dispact(SetCheck(e))} className='absolute w-5 h-5 max-lg:bottom-2 border left-2 flex justify-center items-center text-green-500'> <div className={`${e.isChecked ? "absolute" : "hidden"} z-10 text-3xl`}><FaCheck /></div></div>
               <div className='flex items-center gap-3'>
                 <div className='h-16 w-16 max-md:w-8 max-md:h-8 relative bg-white  '>
-                  <Image src={"/produkk.png"} fill className='object-contain' alt="img-produk" />
+                  <Image src={`${e.img}.png`} fill className='object-contain' alt="img-produk" />
                 </div>
                 <h1 className='text-xl max-md:text-base'>Kopi {e.ProductName}</h1>
               </div>

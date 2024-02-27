@@ -24,7 +24,7 @@ const Paymeny = (props: props) => {
             <div key={index} className='relative bg-black shadow-sm shadow-white my-2 text-white md:gap-5 max-md:py-5  md:items-center px-4 flex-col md:flex-row flex rounded-md justify-around w-full h-24'>
               <div className='flex items-center gap-3'>
                 <div className='h-16 w-16 max-md:w-8 max-md:h-8 relative bg-white  '>
-                  <Image src={"/produkk.png"} fill className='object-contain' alt="img-produk" />
+                  <Image src={`${e.img}.png`} fill className='object-contain' alt="img-produk" />
                 </div>
                 <h1 className='text-xl max-md:text-base'>Kopi {e.ProductName}</h1>
               </div>
