@@ -19,7 +19,7 @@ const Theme = () => {
 
     return (
         <div className='fixed h-full right-4 flex items-center theme'>
-            <div  className={`w-20 h-20   rounded-lg flex justify-center items-center ${theme === "dark" ? "bg-white" :"bg-"}  border-4 relative border-gray-400`}>
+            <div  className={`w-20 h-20   rounded-lg flex justify-center items-center ${theme === "dark" ? "bg-white" :"bg-black"}  border-4 relative border-gray-400`}>
 
 
                 <div className='h-16 w-16 hover:h-40 cursor-pointer hover:w-40  relative duration-200  '>

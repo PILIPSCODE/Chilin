@@ -118,9 +118,14 @@ const Hero = (props: props) => {
   }, [themes])
   return (
     <div ref={body} className={`${theme === "dark" ? "bg-black" : "bg-white"} h-screen flex   overflow-hidden justify-center`}>
+      {theme === "dark" ?
       <div ref={texthero} className='absolute z-0 w-full left-0 overflow-x-hidden flex h-full -translate-y-400'>
         <Image alt='fallCoffe' fill className='object-cover ' src={"/fallCoffe.png"} />
-      </div>
+      </div>:
+       <div ref={texthero} className='absolute z-0 w-full left-0 overflow-x-hidden flex h-full -translate-y-400'>
+       <Image alt='fallCoffe' fill className='object-cover ' src={"/fallCoffeput.png"} />
+     </div>
+      }
       <div className='w-3/5 pt-40 max-sm:mt-10'>
         <h1 ref={text} className={` ${theme === "dark" ? "text-white" : "text-black"}     text-9xl max-lg:text-8xl max-md:text-7xl max-sm:text-6xl max-[600px]:text-6xl relative  max-sm:-translate-y-12 text-center font-Abril`}><span className='relative z-20'>Make Your Day Chills Like An</span> <span className='relative z-40'>Water</span></h1>
       </div>
