@@ -3,7 +3,7 @@ import React from 'react'
 
 const Contactus = () => {
   return (
-    <div className='p-10 font-Poppins bg-white'>
+    <div className='p-10 font-Poppins bg-white' id='contactus'>
       <div className=' overflow-hidden  grid md:grid-cols-2 '>
         <div
         >

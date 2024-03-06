@@ -55,10 +55,10 @@ const NavBar = () => {
                         <CgYinyang />
                         <h1 >About Us</h1>
                     </Link>
-                    <div className=' flex gap-2 justify-center items-center'>
+                    <Link href={"/#contactus"} className=' flex gap-2 justify-center items-center'>
                         <FaPhone />
                         <h1>Contact Us</h1>
-                    </div>
+                    </Link>
                 </div>
 
 
@@ -67,7 +67,7 @@ const NavBar = () => {
                 <div className='flex gap-9 items-center relative'>
                     <Link className='flex items-center gap-1' href={'/Cart'}><FaCartShopping /><span className=' absolute translate-x-6'>{String(Qty)}</span></Link>
 
-                    <h1 className='bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white hover:border-2 border-2'>Variant</h1>
+                    <Link href="/#variant" className='bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white hover:border-2 border-2'>Variant</Link>
                 <div onClick={() => setShowNav(!showNav)} className='md:hidden absolute  -right-7'>
                     {showNav?
                     <FaX/>

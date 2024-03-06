@@ -63,7 +63,7 @@ const MenuKami = () => {
         dispact(increment(e))
     }
     return (
-        <div className='overflow-hidden relative font-Poppins  z-menu '>
+        <div id='variant' className='overflow-hidden relative font-Poppins  z-menu '>
             <div ref={triggerRef}>
 
                 <div ref={bodyMenu} className='h-screen flex flex-row w-v relative'>
