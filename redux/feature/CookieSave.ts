@@ -105,3 +105,8 @@ export const CartSet =  (body:Cartitems) => {
     setCookie("MyDataAddrees", JSON.stringify(newArrayCustomer));
 
   }
+
+
+  export const ThemeSet = (theme:String) => {
+    setCookie("Theme", theme);
+  }

@@ -1,5 +1,5 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartSet, CustomerSet, UpdateCustomerSet, updatedecrement, updateIncrement } from "./CookieSave";
+import { CartSet, CustomerSet, ThemeSet, UpdateCustomerSet, updatedecrement, updateIncrement } from "./CookieSave";
 import { getCookie, setCookie } from "cookies-next";
 import { RootState } from "../store";
 
@@ -9,12 +9,14 @@ type InitialState={
   CheckOut:CheckOut,
   jmlh:Number,
   Cost:Number,
-  DataCustomer:DataCustomer[]
+  DataCustomer:DataCustomer[],
+  Theme:String
 }
 const initialState: InitialState = {
    Cart:[],
    CheckOut:{Address:0,city:""},
    Cost:0,
+   Theme:"",
    jmlh:0,
    DataCustomer:[],
 };
@@ -35,6 +37,12 @@ DataCustomer ? "" : setCookie("MyDataAddrees", []);
 const dataCus = DataCustomer ? JSON.parse(String(DataCustomer)) : "";
 if (DataCustomer) {
   initialState.DataCustomer = dataCus.reverse();
+}
+
+const Theme = getCookie("Theme");
+Theme ? "" : setCookie("Theme","dark");
+if (Theme) {
+  initialState.Theme = Theme
 }
 
 
@@ -135,7 +143,11 @@ export const Cart = createSlice({
     },
     SetCosts:(state, action:PayloadAction<Number>) => {
       state.Cost = action.payload
-    }
+    },
+    SetTheme:(state,action:PayloadAction<String>) => {
+      state.Theme = action.payload
+      ThemeSet(action.payload)
+    },
     
   },
 });
@@ -153,5 +165,5 @@ export const totalIsQty = createSelector([CartItem], (cartItem) =>
 );
 
 
-export const { increment, DelDataCustome,decrement, SetCheck, SetCheckAll,SetCosts,RemoveProduct,RemoveProductAll,CheckOut,DataCustome} = Cart.actions;
+export const { increment, DelDataCustome,decrement, SetCheck, SetCheckAll,SetCosts,RemoveProduct,RemoveProductAll,CheckOut,DataCustome,SetTheme} = Cart.actions;
 export default Cart.reducer;

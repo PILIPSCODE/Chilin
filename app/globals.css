@@ -82,14 +82,18 @@ body{
 @keyframes amoow{
 
 }
-.navb{
-  z-index: 200;
-}
+
 .z-menu{
   z-index: 100;
 }
 .w-v{
   width: 400vw;
+}
+.theme{
+  z-index: 99999;
+}
+.nav{
+  z-index: 9999999999;
 }
 
 @media(max-width:320px){
